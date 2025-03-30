@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxc1fcvsx43et"]
+
+[ext_resource type="Texture2D" uid="uid://blljm783rx3ay" path="res://image/pipe_up.png" id="1_k86b4"]
+[ext_resource type="Texture2D" uid="uid://bwreq71gi6ev3" path="res://image/pipe_down.png" id="2_7bn56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a83ln"]
+size = Vector2(48, 314)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oq1o1"]
+size = Vector2(48, 314)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k86b4"]
+size = Vector2(20, 184)
+
+[node name="Pipe" type="Node2D"]
+
+[node name="Up" type="StaticBody2D" parent="."]
+position = Vector2(0, 250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+shape = SubResource("RectangleShape2D_a83ln")
+
+[node name="Sprite2D" type="Sprite2D" parent="Up"]
+texture = ExtResource("1_k86b4")
+
+[node name="Down" type="StaticBody2D" parent="."]
+position = Vector2(0, -250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+shape = SubResource("RectangleShape2D_oq1o1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Down"]
+texture = ExtResource("2_7bn56")
+
+[node name="Coin" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+shape = SubResource("RectangleShape2D_k86b4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-24, -406, 48, 812)
