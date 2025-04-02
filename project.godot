@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="flybird"
-run/main_scene="uid://b6qbksppn8dd4"
+run/main_scene="uid://xilynqjcwkh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Main="*res://scene/Main.tscn"
 
 [display]
 

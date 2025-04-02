@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://xilynqjcwkh"]
+[gd_scene load_steps=9 format=3 uid="uid://xilynqjcwkh"]
 
+[ext_resource type="Script" uid="uid://dnn6btp2u571t" path="res://script/Home.gd" id="1_l5gvf"]
 [ext_resource type="PackedScene" uid="uid://1i7r44of4wvf" path="res://scene/Background.tscn" id="1_ufhkq"]
 [ext_resource type="Texture2D" uid="uid://c54ldn7r0o6ug" path="res://image/title.png" id="2_l5gvf"]
 [ext_resource type="Texture2D" uid="uid://cmwpwc4mo6d6i" path="res://image/bird1_0.png" id="3_kquoa"]
@@ -25,6 +26,7 @@ animations = [{
 }]
 
 [node name="Home" type="Node2D"]
+script = ExtResource("1_l5gvf")
 
 [node name="Background" parent="." instance=ExtResource("1_ufhkq")]
 

@@ -4,6 +4,21 @@
 [ext_resource type="AudioStream" uid="uid://d4ej7rgrdmfcx" path="res://audio/die.wav" id="2_yiwpq"]
 [ext_resource type="AudioStream" uid="uid://ois2w3l28hcj" path="res://audio/swoosh.wav" id="3_mnmej"]
 
+[sub_resource type="Animation" id="Animation_yiwpq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_hr7lf"]
 resource_name = "fade-in"
 length = 0.5
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_yiwpq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mnmej"]
 _data = {
 &"RESET": SubResource("Animation_yiwpq"),
@@ -44,10 +44,10 @@ _data = {
 [node name="Main" type="Node2D"]
 script = ExtResource("1_hr7lf")
 
-[node name="die" type="AudioStreamPlayer" parent="."]
+[node name="DieAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_yiwpq")
 
-[node name="swoosh" type="AudioStreamPlayer" parent="."]
+[node name="SwooshAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_mnmej")
 
 [node name="Transition" type="Node" parent="."]

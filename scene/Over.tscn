@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6logxrnp4ff4"]
+[gd_scene load_steps=8 format=3 uid="uid://b6logxrnp4ff4"]
 
+[ext_resource type="Script" uid="uid://dp40tsndwxanx" path="res://script/Over.gd" id="1_y6soo"]
 [ext_resource type="PackedScene" uid="uid://1i7r44of4wvf" path="res://scene/Background.tscn" id="1_ytcqh"]
 [ext_resource type="Texture2D" uid="uid://b6dei41m2u48p" path="res://image/score_panel.png" id="2_c6k0s"]
 [ext_resource type="Texture2D" uid="uid://mi01n5xw5sbg" path="res://image/text_game_over.png" id="3_yel3k"]
@@ -8,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://ccgtrbflqmilv" path="res://font/FB.ttf" id="6_s0vg3"]
 
 [node name="Over" type="Node2D"]
+script = ExtResource("1_y6soo")
 
 [node name="Background" parent="." instance=ExtResource("1_ytcqh")]
 

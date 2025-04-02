@@ -6,10 +6,9 @@ extends Node2D
 @onready var background: Node2D = $BackGrounds
 @onready var pipes: Node2D = $Pipes
 
-signal end_game(point: int)
-
 var pipeInterval: int = 150
 var pipeCount: int = 3
+var isOver: bool = false
 
 func _ready() -> void:
 	for i in range(30):
@@ -19,8 +18,13 @@ func _process(_delta: float) -> void:
 	camera2d.position.x = bird.position.x - 90
 	var count = int(bird.position.x / 1152)
 	background.position.x = count * 1152
-	if (bird.hp <= 0):
-		emit_signal("end_game", bird.point)
+	if (!isOver && bird.hp <= 0):
+		endGame()
+
+func endGame():
+	isOver = true
+	Main.point = bird.point
+	Main.changeScene("res://scene/Over.tscn")
 
 func createPipe():
 	var createPositionX = pipeCount * pipeInterval
