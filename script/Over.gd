@@ -5,4 +5,4 @@ func _ready() -> void:
 	$Control/Menu.connect("pressed", Callable(self, "home"))
 
 func home():
-	Main.changeScene("res://scene/Home.tscn")
+	Main.changeScene(Main.SCENE.Home)

@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 func endGame():
 	isOver = true
 	Main.point = bird.point
-	Main.changeScene("res://scene/Over.tscn")
+	Main.changeScene(Main.SCENE.Over)
 
 func createPipe():
 	var createPositionX = pipeCount * pipeInterval
