@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://xilynqjcwkh"]
+[gd_scene load_steps=10 format=3 uid="uid://xilynqjcwkh"]
 
 [ext_resource type="Script" uid="uid://dnn6btp2u571t" path="res://script/Home.gd" id="1_l5gvf"]
 [ext_resource type="PackedScene" uid="uid://1i7r44of4wvf" path="res://scene/Background.tscn" id="1_ufhkq"]
@@ -24,6 +24,11 @@ animations = [{
 "name": &"bird",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5gvf"]
+texture = ExtResource("6_otlhm")
+region_rect = Rect2(0, 0, 116, 70)
+modulate_color = Color(0, 0, 0, 1)
 
 [node name="Home" type="Node2D"]
 script = ExtResource("1_l5gvf")
@@ -55,5 +60,6 @@ offset_bottom = 289.0
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_l5gvf")
 icon = ExtResource("6_otlhm")
 flat = true
