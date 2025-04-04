@@ -14,14 +14,6 @@ position = Vector2(100, 200)
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="BackGrounds" type="Node2D" parent="."]
-
-[node name="Background1" parent="BackGrounds" instance=ExtResource("2_t585p")]
-position = Vector2(-1152, 0)
-
-[node name="Background2" parent="BackGrounds" instance=ExtResource("2_t585p")]
-
-[node name="Background3" parent="BackGrounds" instance=ExtResource("2_t585p")]
-position = Vector2(1152, 0)
-
 [node name="Pipes" type="Node2D" parent="."]
+
+[node name="BackGround" parent="." instance=ExtResource("2_t585p")]

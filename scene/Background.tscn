@@ -4,80 +4,40 @@
 [ext_resource type="Texture2D" uid="uid://ecvygabf24ok" path="res://image/land.png" id="2_3pha4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6i33"]
-size = Vector2(336, 112)
+size = Vector2(1152, 112)
 
 [node name="Background" type="Node2D"]
 
-[node name="Land" type="Node2D" parent="."]
+[node name="Lands" type="Node2D" parent="."]
 
-[node name="Land" type="StaticBody2D" parent="Land"]
-position = Vector2(168, 456)
+[node name="Land" type="StaticBody2D" parent="Lands"]
+position = Vector2(-576, 456)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Land"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lands/Land"]
 shape = SubResource("RectangleShape2D_v6i33")
 
-[node name="Sprite2D" type="Sprite2D" parent="Land/Land"]
+[node name="Sprite2D" type="Sprite2D" parent="Lands/Land"]
 texture = ExtResource("2_3pha4")
 
-[node name="Land2" type="StaticBody2D" parent="Land"]
-position = Vector2(504, 456)
+[node name="Land2" type="StaticBody2D" parent="Lands"]
+position = Vector2(576, 456)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Land2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lands/Land2"]
 shape = SubResource("RectangleShape2D_v6i33")
 
-[node name="Sprite2D" type="Sprite2D" parent="Land/Land2"]
+[node name="Sprite2D" type="Sprite2D" parent="Lands/Land2"]
 texture = ExtResource("2_3pha4")
 
-[node name="Land3" type="StaticBody2D" parent="Land"]
-position = Vector2(840, 456)
+[node name="Land3" type="StaticBody2D" parent="Lands"]
+position = Vector2(1728, 456)
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Land3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lands/Land3"]
 shape = SubResource("RectangleShape2D_v6i33")
 
-[node name="Sprite2D" type="Sprite2D" parent="Land/Land3"]
-texture = ExtResource("2_3pha4")
-
-[node name="Land4" type="StaticBody2D" parent="Land"]
-position = Vector2(1176, 456)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Land4"]
-shape = SubResource("RectangleShape2D_v6i33")
-
-[node name="Sprite2D" type="Sprite2D" parent="Land/Land4"]
-texture = ExtResource("2_3pha4")
-
-[node name="Land5" type="StaticBody2D" parent="Land"]
-position = Vector2(1512, 456)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Land5"]
-shape = SubResource("RectangleShape2D_v6i33")
-
-[node name="Sprite2D" type="Sprite2D" parent="Land/Land5"]
-texture = ExtResource("2_3pha4")
-
-[node name="Land6" type="StaticBody2D" parent="Land"]
-position = Vector2(1848, 456)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Land6"]
-shape = SubResource("RectangleShape2D_v6i33")
-
-[node name="Sprite2D" type="Sprite2D" parent="Land/Land6"]
-texture = ExtResource("2_3pha4")
-
-[node name="Land7" type="StaticBody2D" parent="Land"]
-position = Vector2(2184, 456)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Land7"]
-shape = SubResource("RectangleShape2D_v6i33")
-
-[node name="Sprite2D" type="Sprite2D" parent="Land/Land7"]
+[node name="Sprite2D" type="Sprite2D" parent="Lands/Land3"]
 texture = ExtResource("2_3pha4")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -87,17 +47,5 @@ motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(144, 256)
-texture = ExtResource("1_71f2o")
-
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Background"]
-position = Vector2(288, 0)
-texture = ExtResource("1_71f2o")
-
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Background/Background"]
-position = Vector2(288, 0)
-texture = ExtResource("1_71f2o")
-
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer/Background/Background/Background"]
-position = Vector2(288, 0)
+position = Vector2(576, 256)
 texture = ExtResource("1_71f2o")

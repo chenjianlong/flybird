@@ -3,7 +3,7 @@ extends Node2D
 @onready var camera2d: Camera2D = $Camera2D
 @onready var bird: RigidBody2D = $Bird
 
-@onready var background: Node2D = $BackGrounds
+@onready var background: Node2D = $BackGround
 @onready var pipes: Node2D = $Pipes
 
 var pipeInterval: int = 150
