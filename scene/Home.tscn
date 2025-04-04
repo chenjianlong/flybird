@@ -59,21 +59,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="Animation" id="Animation_kquoa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
 [sub_resource type="Animation" id="Animation_l5gvf"]
 resource_name = "title"
 length = 2.0
@@ -89,6 +74,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.261799, -0.261799, 0.261799]
+}
+
+[sub_resource type="Animation" id="Animation_kquoa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kquoa"]
@@ -112,7 +112,6 @@ position = Vector2(576, 90)
 metadata/_edit_group_ = true
 
 [node name="Title" type="Sprite2D" parent="UI"]
-rotation = 0.261799
 texture = ExtResource("2_l5gvf")
 
 [node name="Bird" type="AnimatedSprite2D" parent="UI"]
