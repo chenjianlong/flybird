@@ -14,6 +14,7 @@ var isOver: bool = false
 func _ready() -> void:
 	$Background/ParallaxBackground/ParallaxLayer/Background.texture = Main.currentBackground
 	bird.hpChangedEvent.connect(onHpChangedEvent)
+	$Hp/Timer.timeout.connect(onHpTimeout)
 	changeHp(bird.hp)
 	for i in range(30):
 		createPipe()
@@ -76,3 +77,20 @@ func onHpChangedEvent(oldHp: int, hp: int):
 		effectHit.position = bird.position
 		add_child(effectHit)
 		changeHp(bird.hp)
+
+
+func onHpTimeout():
+	var hp = preload("res://scene/effect/EffectHp.tscn").instantiate()
+	var createPositionY = randf_range(100, 300)
+	hp.position.x = bird.position.x + 1500
+	hp.position.y = createPositionY
+	add_child(hp)
+	hp.addHpSignal.connect(onHpEntered)
+
+
+func onHpEntered(node: Node2D, other_body):
+	if (other_body == bird):
+		$Bird/hp.play()
+		bird.hp += 1
+		changeHp(bird.hp)
+		node.queue_free()
