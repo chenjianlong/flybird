@@ -70,3 +70,9 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="Hp"]
 wait_time = 10.0
 autostart = true
+
+[node name="SpeedUp" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="SpeedUp"]
+wait_time = 13.0
+autostart = true

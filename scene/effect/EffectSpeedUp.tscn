@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://i84nw48fw5j5"]
+
+[ext_resource type="Script" uid="uid://blx5eogd6u6kd" path="res://script/effect/EffectSpeedUp.gd" id="1_be0et"]
+[ext_resource type="Texture2D" uid="uid://ci34p87xxeqi6" path="res://image/effect/speedup/0.png" id="1_qmwe3"]
+[ext_resource type="Texture2D" uid="uid://bof25j1uwt5jg" path="res://image/effect/speedup/1.png" id="2_be0et"]
+[ext_resource type="Texture2D" uid="uid://bmq2cfe3ugyt1" path="res://image/effect/speedup/2.png" id="3_88637"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_frbgp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qmwe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_be0et")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_88637")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kwhu"]
+radius = 22.0
+
+[node name="EffectSpeedUp" type="Node2D"]
+script = ExtResource("1_be0et")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_frbgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5kwhu")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1, 0.5)
+scale = Vector2(2.7, 2.85)

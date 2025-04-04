@@ -15,6 +15,7 @@ func _ready() -> void:
 	$Background/ParallaxBackground/ParallaxLayer/Background.texture = Main.currentBackground
 	bird.hpChangedEvent.connect(onHpChangedEvent)
 	$Hp/Timer.timeout.connect(onHpTimeout)
+	$SpeedUp/Timer.timeout.connect(onSpeedUpTimeout)
 	changeHp(bird.hp)
 	for i in range(30):
 		createPipe()
@@ -88,9 +89,24 @@ func onHpTimeout():
 	hp.addHpSignal.connect(onHpEntered)
 
 
-func onHpEntered(node: Node2D, other_body):
-	if (other_body == bird):
+func onSpeedUpTimeout():
+	var speedUp = preload("res://scene/effect/EffectSpeedUp.tscn").instantiate()
+	var createPositionY = randf_range(100, 300)
+	speedUp.position.x = bird.position.x + 1500
+	speedUp.position.y = createPositionY
+	add_child(speedUp)
+	speedUp.speedUpSignal.connect(onSpeedUpEntered)
+
+
+func onHpEntered(node: Node2D, otherBody):
+	if (otherBody == bird):
 		$Bird/hp.play()
 		bird.hp += 1
 		changeHp(bird.hp)
+		node.queue_free()
+
+
+func onSpeedUpEntered(node: Node2D, otherBody):
+	if (otherBody == bird):
+		bird.speedUp()
 		node.queue_free()
