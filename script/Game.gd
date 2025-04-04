@@ -12,9 +12,11 @@ var isOver: bool = false
 
 func _ready() -> void:
 	$Background/ParallaxBackground/ParallaxLayer/Background.texture = Main.currentBackground
+	bird.hpChangedEvent.connect(onHpChangedEvent)
 	for i in range(30):
 		createPipe()
-		
+
+
 func _process(_delta: float) -> void:
 	camera2d.position.x = bird.position.x - 90
 	var count = int(bird.position.x / 1152)
@@ -22,10 +24,12 @@ func _process(_delta: float) -> void:
 	if (!isOver && bird.hp <= 0):
 		endGame()
 
+
 func endGame():
 	isOver = true
 	Main.point = bird.point
 	Main.changeScene(Main.SCENE.Over)
+
 
 func createPipe():
 	var createPositionX = pipeCount * pipeInterval
@@ -43,11 +47,19 @@ func createPipe():
 	
 	pipeCount += 1
 
+
 func onPipeScreenExited(exitedPipe: Node2D):
 	exitedPipe.queue_free()
 	createPipe()
-	
+
+
 func onBirdEntered(other_body):
 	if (other_body == bird):
 		$Bird/point.play()
 		bird.point += 1
+
+func onHpChangedEvent(oldHp: int, hp: int):
+	if (oldHp > hp):
+		var effectHit = preload("res://scene/effect/EffectHit.tscn").instantiate()
+		effectHit.position = bird.position
+		add_child(effectHit)

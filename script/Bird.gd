@@ -8,6 +8,7 @@ var point: int = 0
 
 var screen_size
 
+signal hpChangedEvent(oldHp: int, hp: int)
 @onready var animated: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
@@ -46,4 +47,6 @@ func _process(_delta: float):
 
 func on_body_entered_event(_other_body):
 	$hit.play()
+	var oldHp = hp
 	hp = hp - 1
+	emit_signal("hpChangedEvent", oldHp, hp)
