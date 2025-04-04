@@ -48,5 +48,5 @@ func _process(_delta: float):
 func on_body_entered_event(_other_body):
 	$hit.play()
 	var oldHp = hp
-	hp = hp - 1
+	hp = max(hp - 1, 0)
 	emit_signal("hpChangedEvent", oldHp, hp)

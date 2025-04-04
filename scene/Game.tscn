@@ -1,8 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://da1x270ldf1d3"]
+[gd_scene load_steps=9 format=3 uid="uid://da1x270ldf1d3"]
 
 [ext_resource type="PackedScene" uid="uid://hxdgxmwt3aki" path="res://scene/Bird.tscn" id="1_e7hha"]
 [ext_resource type="Script" uid="uid://d0dxfvnv15kqf" path="res://script/Game.gd" id="1_t585p"]
 [ext_resource type="PackedScene" uid="uid://1i7r44of4wvf" path="res://scene/Background.tscn" id="2_t585p"]
+[ext_resource type="Texture2D" uid="uid://b6nl2tkqfmfn7" path="res://image/ui/0.png" id="4_0qanc"]
+[ext_resource type="Texture2D" uid="uid://8nvsnqkvlign" path="res://image/ui/1.png" id="5_qto5f"]
+[ext_resource type="Texture2D" uid="uid://wwrm60mk63eo" path="res://image/ui/2.png" id="6_4cigq"]
+[ext_resource type="Texture2D" uid="uid://106ejnujoefp" path="res://image/ui/3.png" id="7_f6bub"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3aus"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0qanc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qto5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4cigq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f6bub")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_t585p")
@@ -17,3 +41,26 @@ anchor_mode = 0
 [node name="Pipes" type="Node2D" parent="."]
 
 [node name="Background" parent="." instance=ExtResource("2_t585p")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HP" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/HP"]
+position = Vector2(45, 43)
+scale = Vector2(0.495, 0.495)
+sprite_frames = SubResource("SpriteFrames_r3aus")
+
+[node name="HP" type="Label" parent="UI/HP"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 17.0
+offset_right = 160.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 37
+text = "99"
+vertical_alignment = 1

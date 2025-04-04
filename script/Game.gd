@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var background: Node2D = $Background
 @onready var pipes: Node2D = $Pipes
+@onready var hpAnimatedSprite2D: AnimatedSprite2D = $UI/HP/AnimatedSprite2D
 
 var pipeInterval: int = 150
 var pipeCount: int = 3
@@ -13,8 +14,14 @@ var isOver: bool = false
 func _ready() -> void:
 	$Background/ParallaxBackground/ParallaxLayer/Background.texture = Main.currentBackground
 	bird.hpChangedEvent.connect(onHpChangedEvent)
+	changeHp(bird.hp)
 	for i in range(30):
 		createPipe()
+
+
+func changeHp(hp: int):
+	$UI/HP/HP.text = String.num_int64(hp)
+	hpAnimatedSprite2D.play()
 
 
 func _process(_delta: float) -> void:
@@ -23,6 +30,10 @@ func _process(_delta: float) -> void:
 	background.position.x = count * 1152
 	if (!isOver && bird.hp <= 0):
 		endGame()
+
+	if (hpAnimatedSprite2D.frame == 3):
+		hpAnimatedSprite2D.frame = 0
+		hpAnimatedSprite2D.stop()
 
 
 func endGame():
@@ -58,8 +69,10 @@ func onBirdEntered(other_body):
 		$Bird/point.play()
 		bird.point += 1
 
+
 func onHpChangedEvent(oldHp: int, hp: int):
 	if (oldHp > hp):
 		var effectHit = preload("res://scene/effect/EffectHit.tscn").instantiate()
 		effectHit.position = bird.position
 		add_child(effectHit)
+		changeHp(bird.hp)
