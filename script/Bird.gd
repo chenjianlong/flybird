@@ -11,6 +11,7 @@ var screen_size
 @onready var animated: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
+	animated.animation = Main.currentAnimation
 	screen_size = get_viewport_rect().size
 	
 	set_linear_velocity(Vector2(speed, 0))

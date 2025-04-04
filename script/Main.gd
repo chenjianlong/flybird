@@ -20,6 +20,9 @@ const backgrounds: Array[Resource] = [
 ]
 var currentBackground = backgrounds.front()
 
+var birdAnimations: Array[String] = ["blue", "red", "yellow"]
+var currentAnimation = birdAnimations.front()
+
 var point: int = 0
 
 func _ready():
@@ -37,3 +40,4 @@ func changeScene(scene: SCENE):
 
 func randomBackground():
 	currentBackground = RandomUtils.randomEle(backgrounds)
+	currentAnimation = RandomUtils.randomEle(birdAnimations)

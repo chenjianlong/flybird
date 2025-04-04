@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://xilynqjcwkh"]
+[gd_scene load_steps=19 format=3 uid="uid://xilynqjcwkh"]
 
 [ext_resource type="Script" uid="uid://dnn6btp2u571t" path="res://script/Home.gd" id="1_l5gvf"]
 [ext_resource type="PackedScene" uid="uid://1i7r44of4wvf" path="res://scene/Background.tscn" id="1_ufhkq"]
@@ -7,6 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://5jmc88cftoup" path="res://image/bird1_1.png" id="4_73k4e"]
 [ext_resource type="Texture2D" uid="uid://b5aoful4jvnns" path="res://image/bird1_2.png" id="5_03j6s"]
 [ext_resource type="Texture2D" uid="uid://b884ngaswotyn" path="res://image/button_play.png" id="6_otlhm"]
+[ext_resource type="Texture2D" uid="uid://cyh700ju4d6lt" path="res://image/bird2_0.png" id="7_wcm1u"]
+[ext_resource type="Texture2D" uid="uid://52c6hv3pjkm7" path="res://image/bird2_1.png" id="8_3qysa"]
+[ext_resource type="Texture2D" uid="uid://ddhsnb3xh6ln7" path="res://image/bird2_2.png" id="9_wbmhp"]
+[ext_resource type="Texture2D" uid="uid://dkjbwrcjee8km" path="res://image/bird0_0.png" id="10_57mtm"]
+[ext_resource type="Texture2D" uid="uid://ca86f21quekxy" path="res://image/bird0_1.png" id="11_ym236"]
+[ext_resource type="Texture2D" uid="uid://diiqnjw604lb1" path="res://image/bird0_2.png" id="12_4s7id"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xh4cs"]
 animations = [{
@@ -21,8 +27,36 @@ animations = [{
 "texture": ExtResource("5_03j6s")
 }],
 "loop": true,
-"name": &"bird",
-"speed": 5.0
+"name": &"blue",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wcm1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3qysa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wbmhp")
+}],
+"loop": true,
+"name": &"red",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_57mtm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ym236")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4s7id")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_kquoa"]
@@ -84,8 +118,8 @@ texture = ExtResource("2_l5gvf")
 [node name="Bird" type="AnimatedSprite2D" parent="UI"]
 position = Vector2(0, 80)
 sprite_frames = SubResource("SpriteFrames_xh4cs")
-animation = &"bird"
-autoplay = "bird"
+animation = &"blue"
+autoplay = "blue"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
