@@ -3,7 +3,7 @@ extends Node2D
 @onready var camera2d: Camera2D = $Camera2D
 @onready var bird: RigidBody2D = $Bird
 
-@onready var background: Node2D = $BackGround
+@onready var background: Node2D = $Background
 @onready var pipes: Node2D = $Pipes
 
 var pipeInterval: int = 150
@@ -11,6 +11,7 @@ var pipeCount: int = 3
 var isOver: bool = false
 
 func _ready() -> void:
+	$Background/ParallaxBackground/ParallaxLayer/Background.texture = Main.currentBackground
 	for i in range(30):
 		createPipe()
 		

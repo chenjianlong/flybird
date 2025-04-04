@@ -1,5 +1,7 @@
 extends Node
 
+const RandomUtils = preload("res://zfoo/RandomUtils.gd")
+
 @onready var dieAudio: AudioStreamPlayer = $DieAudio
 @onready var swooshAudio: AudioStreamPlayer = $SwooshAudio
 @onready var transitionAnimation: AnimationPlayer = $Transition/AnimationPlayer
@@ -11,6 +13,12 @@ const sceneMap: Dictionary = {
 	SCENE.Game: preload("res://scene/Game.tscn"),
 	SCENE.Over: preload("res://scene/Over.tscn")
 }
+
+const backgrounds: Array[Resource] = [
+	preload("res://image/bg_day.png"),
+	preload("res://image/bg_night.png")
+]
+var currentBackground = backgrounds.front()
 
 var point: int = 0
 
@@ -26,3 +34,6 @@ func changeScene(scene: SCENE):
 	await transitionAnimation.animation_finished
 	get_tree().change_scene_to_packed(scenePath)
 	transitionAnimation.play("fade-in")
+
+func randomBackground():
+	currentBackground = RandomUtils.randomEle(backgrounds)

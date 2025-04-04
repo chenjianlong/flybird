@@ -16,4 +16,4 @@ anchor_mode = 0
 
 [node name="Pipes" type="Node2D" parent="."]
 
-[node name="BackGround" parent="." instance=ExtResource("2_t585p")]
+[node name="Background" parent="." instance=ExtResource("2_t585p")]
