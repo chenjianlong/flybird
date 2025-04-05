@@ -1,5 +1,7 @@
 extends Node2D
 
+const RandomUtils = preload("res://zfoo/RandomUtils.gd")
+
 @onready var camera2d: Camera2D = $Camera2D
 @onready var bird: RigidBody2D = $Bird
 
@@ -11,9 +13,16 @@ var pipeInterval: int = 150
 var pipeCount: int = 3
 var isOver: bool = false
 
+const enemies: Array[PackedScene] = [
+	preload("res://scene/enemy/Cloud.tscn"),
+	preload("res://scene/enemy/Fish.tscn"),
+	preload("res://scene/enemy/Shark.tscn")
+]
+
 func _ready() -> void:
 	$Background/ParallaxBackground/ParallaxLayer/Background.texture = Main.currentBackground
 	bird.hpChangedEvent.connect(onHpChangedEvent)
+	$Enemies/Timer.timeout.connect(onEnemiesTimeout)
 	$Hp/Timer.timeout.connect(onHpTimeout)
 	$SpeedUp/Timer.timeout.connect(onSpeedUpTimeout)
 	changeHp(bird.hp)
@@ -78,6 +87,14 @@ func onHpChangedEvent(oldHp: int, hp: int):
 		effectHit.position = bird.position
 		add_child(effectHit)
 		changeHp(bird.hp)
+
+
+func onEnemiesTimeout():
+	var enemy = RandomUtils.randomEle(enemies).instantiate()
+	var createPositionY = randf_range(50, 450)
+	enemy.position.x = bird.position.x + 1000
+	enemy.position.y = createPositionY
+	add_child(enemy)
 
 
 func onHpTimeout():

@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://c72c0nj833l1p"]
+
+[ext_resource type="Script" uid="uid://brnt32ojlfq2t" path="res://script/enemy/Shark.gd" id="1_rnp0c"]
+[ext_resource type="Texture2D" uid="uid://bfy7ueqm0men6" path="res://image/enemy/shark/0.png" id="2_rnp0c"]
+[ext_resource type="Texture2D" uid="uid://dm5u265nu1ms3" path="res://image/enemy/shark/1.png" id="3_kbcsa"]
+[ext_resource type="Texture2D" uid="uid://c3oqhmnxi1qmh" path="res://image/enemy/shark/2.png" id="4_vsrlf"]
+[ext_resource type="Texture2D" uid="uid://b6a17du4ejqkv" path="res://image/enemy/shark/3.png" id="5_s330r"]
+[ext_resource type="Texture2D" uid="uid://c4jg4pgdog8d1" path="res://image/enemy/shark/4.png" id="6_lmj41"]
+[ext_resource type="Texture2D" uid="uid://c80m3y80vkmqj" path="res://image/enemy/shark/5.png" id="7_tas40"]
+[ext_resource type="Texture2D" uid="uid://navas07q5q35" path="res://image/enemy/shark/6.png" id="8_370h4"]
+[ext_resource type="Texture2D" uid="uid://dt1aq6srurxkd" path="res://image/enemy/shark/7.png" id="9_rnxqg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s0uue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rnp0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kbcsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vsrlf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_s330r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lmj41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tas40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_370h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rnxqg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xwif2"]
+radius = 22.0
+
+[node name="Shark" type="AnimatableBody2D"]
+script = ExtResource("1_rnp0c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_s0uue")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xwif2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.999997, 1)
+scale = Vector2(3.9, 3.4)

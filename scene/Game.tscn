@@ -76,3 +76,9 @@ autostart = true
 [node name="Timer" type="Timer" parent="SpeedUp"]
 wait_time = 13.0
 autostart = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="Enemies"]
+wait_time = 6.0
+autostart = true
