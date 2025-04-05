@@ -65,7 +65,7 @@ func createPipe():
 	newPipe.position.x = createPositionX
 	newPipe.position.y = createPositionY
 	newPipe.name = String.num_int64(pipeCount)
-	if (pipeCount / 10 % 2 == 1):
+	if (int(pipeCount / 10.0) % 2 == 1):
 		newPipe.get_node("Up/Sprite2D").texture = pipeUpBrown
 		newPipe.get_node("Down/Sprite2D").texture = pipeDownBrown
 	pipes.add_child(newPipe)
