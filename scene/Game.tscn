@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://da1x270ldf1d3"]
+[gd_scene load_steps=15 format=3 uid="uid://da1x270ldf1d3"]
 
 [ext_resource type="PackedScene" uid="uid://hxdgxmwt3aki" path="res://scene/Bird.tscn" id="1_e7hha"]
 [ext_resource type="Script" uid="uid://d0dxfvnv15kqf" path="res://script/Game.gd" id="1_t585p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://8nvsnqkvlign" path="res://image/ui/1.png" id="5_qto5f"]
 [ext_resource type="Texture2D" uid="uid://wwrm60mk63eo" path="res://image/ui/2.png" id="6_4cigq"]
 [ext_resource type="Texture2D" uid="uid://106ejnujoefp" path="res://image/ui/3.png" id="7_f6bub"]
+[ext_resource type="Texture2D" uid="uid://cmwpwc4mo6d6i" path="res://image/bird1_0.png" id="8_qto5f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r3aus"]
 animations = [{
@@ -27,6 +28,25 @@ animations = [{
 "name": &"default",
 "speed": 8.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_qto5f"]
+colors = PackedColorArray(0.0941176, 0.458824, 0.823529, 0.498039, 0.0941176, 0.458824, 0.823529, 0.152941)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4cigq"]
+gradient = SubResource("Gradient_qto5f")
+
+[sub_resource type="Curve" id="Curve_4cigq"]
+_data = [Vector2(0.00684932, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.622642), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f6bub"]
+curve = SubResource("Curve_4cigq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3aus"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_f6bub")
+color_ramp = SubResource("GradientTexture1D_4cigq")
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_t585p")
@@ -82,3 +102,7 @@ autostart = true
 [node name="Timer" type="Timer" parent="Enemies"]
 wait_time = 6.0
 autostart = true
+
+[node name="BirdSpeedUpEffect" type="GPUParticles2D" parent="."]
+texture = ExtResource("8_qto5f")
+process_material = SubResource("ParticleProcessMaterial_r3aus")

@@ -8,6 +8,7 @@ const RandomUtils = preload("res://zfoo/RandomUtils.gd")
 @onready var background: Node2D = $Background
 @onready var pipes: Node2D = $Pipes
 @onready var hpAnimatedSprite2D: AnimatedSprite2D = $UI/HP/AnimatedSprite2D
+@onready var birdSpeedUpEffect: GPUParticles2D = $BirdSpeedUpEffect
 
 var pipeInterval: int = 150
 var pipeCount: int = 3
@@ -39,7 +40,9 @@ func changeHp(hp: int):
 
 
 func _process(_delta: float) -> void:
-	camera2d.position.x = bird.position.x - 90
+	camera2d.position.x = bird.position.x - bird.cameraOffset
+	birdSpeedUpEffect.position = bird.position
+	birdSpeedUpEffect.emitting = bird.isSpeedUp
 	var count = int(bird.position.x / 1152)
 	background.position.x = count * 1152
 	if (!isOver && bird.hp <= 0):
