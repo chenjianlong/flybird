@@ -19,6 +19,9 @@ const enemies: Array[PackedScene] = [
 	preload("res://scene/enemy/Shark.tscn")
 ]
 
+const pipeUpBrown = preload("res://image/pipe2_up.png")
+const pipeDownBrown = preload("res://image/pipe2_down.png")
+
 func _ready() -> void:
 	$Background/ParallaxBackground/ParallaxLayer/Background.texture = Main.currentBackground
 	bird.hpChangedEvent.connect(onHpChangedEvent)
@@ -62,6 +65,9 @@ func createPipe():
 	newPipe.position.x = createPositionX
 	newPipe.position.y = createPositionY
 	newPipe.name = String.num_int64(pipeCount)
+	if (pipeCount / 10 % 2 == 1):
+		newPipe.get_node("Up/Sprite2D").texture = pipeUpBrown
+		newPipe.get_node("Down/Sprite2D").texture = pipeDownBrown
 	pipes.add_child(newPipe)
 	
 	newPipe.get_node("VisibleOnScreenNotifier2D").screen_exited.connect(onPipeScreenExited.bind(newPipe))
